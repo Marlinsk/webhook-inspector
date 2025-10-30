@@ -2,7 +2,7 @@ import React from "react"
 import { twMerge } from "tailwind-merge"
 
 interface SectionDataTableProps extends React.ComponentProps<'div'> {
-  data: Array<{ key: string, value: string }>
+  data: Array<{ key: any, value: any }>
 }
 
 export function SectionDataTable({ className, data, ...props }: SectionDataTableProps) {
