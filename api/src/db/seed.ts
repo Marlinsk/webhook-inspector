@@ -175,7 +175,7 @@ async function seed() {
 
     webhookRecords.push({
       method: 'POST',
-      pathname: '/webhook',
+      pathname: '/webhook/stripe',
       ip: faker.internet.ipv4(),
       statusCode: 200,
       contentType: 'application/json',
