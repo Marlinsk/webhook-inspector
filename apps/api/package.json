@@ -10,8 +10,8 @@
 		"setup": "./scripts/setup-dev.sh",
 		"start": "node dist/server.js",
 		"start:prod": "NODE_ENV=production node dist/server.js",
-		"build": "tsc --build",
-		"build:clean": "rm -rf dist && tsc --build",
+		"build": "tsc --build && tsc-alias",
+		"build:clean": "rm -rf dist tsconfig.tsbuildinfo && tsc --build && tsc-alias",
 		"typecheck": "tsc --noEmit",
 		"format": "biome format --write",
 		"format:check": "biome format",
@@ -31,6 +31,7 @@
 		"@types/node": "^24.9.1",
 		"@types/pg": "^8.15.5",
 		"drizzle-kit": "^0.31.5",
+		"tsc-alias": "^1.8.16",
 		"tsconfig-paths": "^4.2.0",
 		"tsx": "^4.20.6",
 		"typescript": "~5.9.3"

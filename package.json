@@ -21,8 +21,8 @@
     "format:check": "pnpm -r format:check",
     "format:api": "pnpm --filter api format",
     "format:web": "pnpm --filter web format",
-    "clean": "pnpm -r exec rm -rf node_modules dist .next .turbo",
-    "clean:dist": "pnpm -r exec rm -rf dist .next .turbo",
+    "clean": "pnpm -r exec rm -rf node_modules dist .next .turbo tsconfig.tsbuildinfo",
+    "clean:dist": "pnpm -r exec rm -rf dist .next .turbo tsconfig.tsbuildinfo",
     "db:generate": "pnpm --filter api db:generate",
     "db:studio": "pnpm --filter api db:studio"
   },

@@ -3,9 +3,9 @@
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
-		"module": "ESNext",
+		"module": "CommonJS",
 		"target": "ES2022",
-		"moduleResolution": "bundler",
+		"moduleResolution": "node",
 		"outDir": "./dist",
 		"rootDir": "./src",
 		"baseUrl": ".",

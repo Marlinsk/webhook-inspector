@@ -6,6 +6,7 @@ import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import { WebhooksListItem } from "./webhooks-list-item";
 import { webhookListSchema } from "../http/schemas/webhooks";
 import { CodeBlock } from "./ui/code-block";
+import { getApiUrl } from "@/lib/env";
 
 export function WebhooksList() {
   const loadMoreRef = React.useRef<HTMLDivElement>(null)
@@ -16,7 +17,7 @@ export function WebhooksList() {
   const { data, hasNextPage, fetchNextPage, isFetchingNextPage } = useSuspenseInfiniteQuery({
     queryKey: ['webhooks'],
     queryFn: async ({ pageParam }) => {
-      const url = new URL('http://localhost:3333/api/webhooks')
+      const url = new URL(getApiUrl('/api/webhooks'), window.location.origin)
 
       if (pageParam) {
         url.searchParams.set('cursor', pageParam)
@@ -72,7 +73,7 @@ export function WebhooksList() {
   }
 
   async function handleGenerateHandler() {
-    const response = await fetch("http://localhost:3333/api/generate", {
+    const response = await fetch(getApiUrl('/api/generate'), {
       method: 'POST',
       body: JSON.stringify({ webhookIds: checkedWebhooksIds }),
       headers: {
