@@ -4,10 +4,10 @@ Aplicação monorepo para capturar e inspecionar requisições de webhook.
 
 ## Estrutura do Projeto
 
-Este é um monorepo pnpm workspace com dois pacotes:
+Este é um monorepo pnpm workspace com duas aplicações:
 
-- **[api/](api/)** - Backend Fastify com PostgreSQL/Drizzle ORM
-- **[web/](web/)** - Frontend React com TanStack Router
+- **[apps/api/](apps/api/)** - Backend Fastify com PostgreSQL/Drizzle ORM
+- **[apps/web/](apps/web/)** - Frontend React com TanStack Router
 
 ## Pré-requisitos
 
@@ -31,7 +31,7 @@ Antes de iniciar o projeto, configure as variáveis de ambiente da API:
 #### Desenvolvimento Local
 
 ```bash
-cd api
+cd apps/api
 cp .env.example .env.development
 ```
 
@@ -53,7 +53,7 @@ LOG_LEVEL=debug
 #### Produção
 
 ```bash
-cd api
+cd apps/api
 cp .env.example .env.production
 ```
 
@@ -69,7 +69,7 @@ LOG_LEVEL=info
 
 **⚠️ Importante:** Use `sslmode=require` na connection string de produção.
 
-Veja [api/README.md](api/README.md) para detalhes completos sobre variáveis de ambiente.
+Veja [apps/api/README.md](apps/api/README.md) para detalhes completos sobre variáveis de ambiente.
 
 ---
 
@@ -119,7 +119,7 @@ pnpm db:studio
 
 **Scripts internos da API** (geralmente não precisam ser executados manualmente):
 ```bash
-cd api
+cd apps/api
 
 # Apenas preparar ambiente
 pnpm setup
@@ -136,7 +136,7 @@ Para produção, use um provedor PostgreSQL em nuvem:
 - **[Supabase](https://supabase.com)** (Free tier disponível)
 - **[Railway](https://railway.app)** (Free tier com créditos)
 
-Veja [api/README.md](api/README.md) para instruções detalhadas de configuração.
+Veja [apps/api/README.md](apps/api/README.md) para instruções detalhadas de configuração.
 
 ### Build
 

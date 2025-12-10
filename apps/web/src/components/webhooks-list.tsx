@@ -96,7 +96,7 @@ export function WebhooksList() {
           <button 
             disabled={!hasAnyWebhookChecked}
             onClick={handleGenerateHandler} 
-            className="mb-3 px-2 w-full bg-aquamarine-400 text-white rounded-lg flex items-center justify-center gap-3 font-medium text-sm disabled:opacity-50"
+            className="mb-3 p-2 w-full bg-aquamarine-400 text-white rounded-lg flex items-center justify-center gap-3 font-medium text-sm disabled:opacity-50 cursor-pointer"
           >
             <Wand2 className="size-4" />
             Gerar handler

@@ -22,7 +22,7 @@ Script principal que configura e inicia tudo automaticamente.
 # Da raiz do monorepo
 pnpm dev:api
 
-# Ou da pasta api/
+# Ou da pasta apps/api/
 pnpm dev
 
 # Ou diretamente
@@ -53,7 +53,7 @@ Script para preparar o ambiente sem iniciar o servidor. Útil quando você quer 
 # Da raiz do monorepo
 pnpm setup
 
-# Ou da pasta api/
+# Ou da pasta apps/api/
 pnpm setup
 
 # Ou diretamente
@@ -85,7 +85,7 @@ pnpm setup
 - **Docker** instalado e rodando
 - **pnpm** 10.18.1+ instalado
 - **Node.js** 18+ instalado
-- Estar na pasta `api/` (ou executar via workspace da raiz)
+- Estar na pasta `apps/api/` (ou executar via workspace da raiz)
 
 ## Troubleshooting
 
@@ -93,7 +93,7 @@ pnpm setup
 
 ```bash
 # Tornar os scripts executáveis
-chmod +x api/scripts/*.sh
+chmod +x apps/api/scripts/*.sh
 ```
 
 ### Erro: "Docker not running" ou "Cannot connect to Docker daemon"
@@ -113,7 +113,7 @@ docker ps
 
 ```bash
 # Parar container existente
-docker compose -f api/docker-compose.yml down
+docker compose -f apps/api/docker-compose.yml down
 
 # Ver quem está usando a porta
 lsof -i :5436
@@ -125,26 +125,26 @@ lsof -i :5436
 
 ```bash
 # Ver logs do PostgreSQL
-docker compose -f api/docker-compose.yml logs postgres
+docker compose -f apps/api/docker-compose.yml logs postgres
 
 # Seguir logs em tempo real
-docker compose -f api/docker-compose.yml logs -f postgres
+docker compose -f apps/api/docker-compose.yml logs -f postgres
 
 # Reiniciar container
-docker compose -f api/docker-compose.yml restart postgres
+docker compose -f apps/api/docker-compose.yml restart postgres
 ```
 
 ### Variável de ambiente não encontrada
 
 ```bash
 # Verificar se .env.development existe
-ls -la api/.env.development
+ls -la apps/api/.env.development
 
 # Copiar do exemplo se não existir
-cp api/.env.example api/.env.development
+cp apps/api/.env.example apps/api/.env.development
 
 # Editar e configurar as variáveis (especialmente GOOGLE_GENERATIVE_AI_API_KEY)
-nano api/.env.development
+nano apps/api/.env.development
 ```
 
 ### Configurar variáveis de ambiente obrigatórias
@@ -208,7 +208,7 @@ pnpm db:studio
 
 ```bash
 # Parar e remover volumes
-docker compose -f api/docker-compose.yml down -v
+docker compose -f apps/api/docker-compose.yml down -v
 
 # Recriar tudo
 pnpm dev:api
@@ -221,7 +221,7 @@ Se preferir usar banco em nuvem (Neon, Supabase, Railway):
 1. Configure `DATABASE_URL` no `.env.development` com a connection string do provedor
 2. Execute apenas migrations e servidor:
    ```bash
-   cd api
+   cd apps/api
    pnpm db:migrate
    pnpm dev:manual
    ```
@@ -233,7 +233,7 @@ Se preferir usar banco em nuvem (Neon, Supabase, Railway):
 docker ps
 
 # Parar todos do projeto
-docker compose -f api/docker-compose.yml down
+docker compose -f apps/api/docker-compose.yml down
 ```
 
 ## Perguntas Frequentes

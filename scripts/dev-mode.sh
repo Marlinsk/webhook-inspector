@@ -33,7 +33,7 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 # Iniciar API em background (usando o script próprio da API)
-(cd api && ./scripts/dev.sh) &
+(cd apps/api && ./scripts/dev.sh) &
 API_PID=$!
 
 # Aguardar API estar pronta antes de iniciar o Web
@@ -52,7 +52,7 @@ if [ $ELAPSED -eq $MAX_WAIT ]; then
 fi
 
 # Iniciar Web em background
-(cd web && pnpm dev) &
+(cd apps/web && pnpm dev) &
 WEB_PID=$!
 
 # Aguardar qualquer processo finalizar
