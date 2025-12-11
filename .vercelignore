@@ -1,0 +1,15 @@
+# Ignore API app (deployed separately)
+apps/api
+
+# Ignore dev artifacts
+.turbo
+dist
+node_modules/.cache
+
+# Ignore environment files
+.env*
+!.env.example
+
+# Ignore dev packages
+packages/dev-config
+packages/biome-config

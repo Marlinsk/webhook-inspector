@@ -4,10 +4,21 @@ Aplicação monorepo para capturar e inspecionar requisições de webhook.
 
 ## Estrutura do Projeto
 
-Este é um monorepo pnpm workspace com duas aplicações:
+Este é um **monorepo Turborepo** gerenciado com **pnpm workspaces**:
 
+### Apps
 - **[apps/api/](apps/api/)** - Backend Fastify com PostgreSQL/Drizzle ORM
 - **[apps/web/](apps/web/)** - Frontend React com TanStack Router
+
+### Shared Packages
+- **packages/typescript-config/** - Configurações TypeScript compartilhadas
+- **packages/biome-config/** - Configurações Biome compartilhadas
+
+O Turborepo fornece:
+- ⚡ **Cache inteligente** - Builds e testes nunca executam duas vezes
+- 🚀 **Execução paralela** - Tasks rodam em paralelo quando possível
+- 📦 **Pipeline de tasks** - Garante ordem correta de execução
+- 💾 **Cache remoto** - Compartilhamento de cache entre equipes (opcional)
 
 ## Pré-requisitos
 
@@ -87,16 +98,13 @@ A API agora inicia **automaticamente**:
 - ✅ Seed com dados de exemplo
 - ✅ Servidor em modo watch
 
-**Comandos individuais:**
+**Comandos individuais (Turborepo):**
 ```bash
-# Iniciar apenas a API (automático)
-pnpm dev:api
+# Iniciar apenas a API
+turbo dev --filter=api
 
 # Iniciar apenas o Web
-pnpm dev:web
-
-# Apenas preparar ambiente (sem iniciar servidor)
-pnpm setup
+turbo dev --filter=web
 ```
 
 ### Configuração do Banco de Dados
@@ -141,15 +149,15 @@ Veja [apps/api/README.md](apps/api/README.md) para instruções detalhadas de co
 ### Build
 
 ```bash
-# Build de todos os pacotes
+# Build de todos os pacotes (com cache inteligente do Turborepo)
 pnpm build
 
-# Build limpo (limpa antes de compilar)
-pnpm build:clean
-
 # Build específico
-pnpm build:api
-pnpm build:web
+turbo build --filter=api
+turbo build --filter=web
+
+# Limpar cache e builds
+pnpm clean
 ```
 
 ### Verificação de Código
@@ -160,7 +168,7 @@ pnpm build:web
 pnpm typecheck
 
 # Verificar apenas API
-pnpm typecheck:api
+turbo typecheck --filter=api
 ```
 
 **Formatação:**

@@ -3,30 +3,28 @@
   "version": "1.0.0",
   "description": "Webhook Inspector - Uma aplicação monorepo para capturar e inspecionar requisições de webhook.",
   "private": true,
+  "author": "",
+  "license": "ISC",
   "packageManager": "pnpm@10.18.1",
   "scripts": {
-    "dev": "./scripts/dev-mode.sh",
-    "dev:api": "pnpm --filter api dev",
-    "dev:web": "pnpm --filter web dev",
-    "setup": "pnpm --filter api setup",
-    "build": "pnpm -r build",
-    "build:clean": "pnpm clean && pnpm build",
-    "build:api": "pnpm --filter api build",
-    "build:web": "pnpm --filter web build",
-    "start": "pnpm --filter api start",
-    "start:prod": "pnpm --filter api start:prod",
-    "typecheck": "pnpm -r typecheck",
-    "typecheck:api": "pnpm --filter api typecheck",
-    "format": "pnpm -r format",
-    "format:check": "pnpm -r format:check",
-    "format:api": "pnpm --filter api format",
-    "format:web": "pnpm --filter web format",
-    "clean": "pnpm -r exec rm -rf node_modules dist .next .turbo tsconfig.tsbuildinfo",
-    "clean:dist": "pnpm -r exec rm -rf dist .next .turbo tsconfig.tsbuildinfo",
-    "db:generate": "pnpm --filter api db:generate",
-    "db:studio": "pnpm --filter api db:studio"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "typecheck": "turbo typecheck",
+    "format": "turbo format",
+    "format:check": "turbo format:check",
+    "clean": "turbo clean && rm -rf node_modules .turbo",
+    "db:generate": "turbo db:generate --filter=api",
+    "db:migrate": "turbo db:migrate --filter=api",
+    "db:studio": "turbo db:studio --filter=api",
+    "db:seed": "turbo db:seed --filter=api"
   },
-  "keywords": ["webhook", "inspector", "monorepo"],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "webhook",
+    "inspector",
+    "monorepo",
+    "turborepo"
+  ],
+  "devDependencies": {
+    "turbo": "^2.6.3"
+  }
 }

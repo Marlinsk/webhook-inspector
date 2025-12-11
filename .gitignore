@@ -8,6 +8,7 @@ dist-ssr
 build
 .next
 .turbo
+*.tsbuildinfo
 
 # Environment variables
 .env
@@ -53,3 +54,7 @@ coverage
 # Database
 *.db
 *.sqlite
+
+# Vercel
+.vercel
+.vercel/**
