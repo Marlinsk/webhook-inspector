@@ -20,7 +20,8 @@ O Turborepo fornece:
 
 - Node.js 18+
 - pnpm 10.18.1+
-- PostgreSQL (via Docker)
+- Linux SO ou subsistema Linux
+- Docker (para rodar os container no modo de desenvolvimento)
 
 ## Começando
 
