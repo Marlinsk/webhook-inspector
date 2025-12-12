@@ -10,10 +10,6 @@ Este é um **monorepo Turborepo** gerenciado com **pnpm workspaces**:
 - **[apps/api/](apps/api/)** - Backend Fastify com PostgreSQL/Drizzle ORM
 - **[apps/web/](apps/web/)** - Frontend React com TanStack Router
 
-### Shared Packages
-- **packages/typescript-config/** - Configurações TypeScript compartilhadas
-- **packages/biome-config/** - Configurações Biome compartilhadas
-
 O Turborepo fornece:
 - ⚡ **Cache inteligente** - Builds e testes nunca executam duas vezes
 - 🚀 **Execução paralela** - Tasks rodam em paralelo quando possível
@@ -269,13 +265,12 @@ pnpm clean
 
 ### Configurações Compartilhadas
 
-- **[biome.json](biome.json)** - Configuração Biome compartilhada para formatação de código
-- **[tsconfig.base.json](tsconfig.base.json)** - Configuração TypeScript base compartilhada
+- **[biome.json](biome.json)** - Configuração Biome para formatação de código (estendida pelos apps)
 - **[pnpm-workspace.yaml](pnpm-workspace.yaml)** - Configuração pnpm workspace
 
-### Configurações Específicas por Pacote
+### Configurações Específicas por App
 
-Cada pacote estende as configurações compartilhadas com configurações específicas.
+Cada app possui suas próprias configurações TypeScript e Biome que estendem a configuração raiz quando necessário.
 
 ## Licença
 

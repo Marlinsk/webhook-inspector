@@ -1,9 +1,0 @@
-{
-  "name": "@webhook-inspect/biome-config",
-  "version": "1.0.0",
-  "private": true,
-  "main": "biome.json",
-  "files": [
-    "biome.json"
-  ]
-}

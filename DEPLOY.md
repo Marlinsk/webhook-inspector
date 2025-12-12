@@ -255,7 +255,7 @@ Depois acesse a interface e veja o webhook capturado!
 **Erro**: `turbo: command not found`
 - ✅ Solução: Vercel deve instalar automaticamente. Verifique se `turbo` está em `devDependencies` na raiz.
 
-**Erro**: `Cannot find module '@webhook-inspect/shared-schemas'`
+**Erro**: `Cannot find module 'zod'` ou módulos faltando
 - ✅ Solução: O `pnpm install` deve rodar na raiz. Vercel faz isso automaticamente com workspaces.
 
 ### API não conecta ao banco

@@ -1,4 +1,4 @@
-import { z } from '@webhook-inspect/shared-schemas'
+import { z } from 'zod'
 
 export const webhookListItemSchema = z.object({
 	id: z.uuidv7(),
